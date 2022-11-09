@@ -33,7 +33,7 @@ class Transaction(models.Model):
     )
 
     def __str__(self):
-        return self.organization
+        return self.description
 
     class Meta:
         db_table = 'transactions'

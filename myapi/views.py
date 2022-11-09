@@ -1,12 +1,18 @@
 from rest_framework import viewsets
 
-from .serializers import TransactionSerializer, CategoriesSerializer, OrganizationsSerializer
+from django.contrib.auth.models import User
+from .serializers import TransactionSerializer, CategoriesSerializer, OrganizationsSerializer, UserSerializer
 from .models import Transaction, Categories, Organizations
 
 
 class TransactionViewSet(viewsets.ModelViewSet):
     queryset = Transaction.objects.all().order_by('amount')
     serializer_class = TransactionSerializer
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
 
 
 class CategoriesViewSet(viewsets.ModelViewSet):
